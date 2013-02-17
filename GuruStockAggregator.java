@@ -52,9 +52,7 @@ public class GuruStockAggregator
 		
 		System.out.println("Guru: \t\t"+guru);		
 		System.out.println("Ticker: \t"+ticker);
-		
-		guru=guru.replace(" ", "%20");
-				
+						
 		printGuruStockData(guru, ticker);
 		
 		System.out.println("\nPress <ENTER> to exit...");
@@ -128,7 +126,8 @@ public class GuruStockAggregator
 					curPrice=Float.parseFloat(sCurPrice);					
 				}
 				
-				int numShares=NumberFormat.getInstance().parse(td[9].getText().toString().trim()).intValue();
+				String sNumShares=td[9].getText().toString().trim();
+				int numShares=NumberFormat.getInstance().parse(sNumShares.length()==0?"-1":sNumShares).intValue();
 					
 				list.addStockEntry(date, entryType, fAvgPrice, fMinPrice, numShares);
 			}

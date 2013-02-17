@@ -8,12 +8,36 @@ public class GuruAggregator
 	
 	public static void main(String[] args) throws Exception
 	{
+		//Initialize
 		DefaultHttpClient client = new DefaultHttpClient();
-		
 		Utils.guruFocusLogin(client);
 		
-		printGuruData("Mohnish Pabrai", 4.0f, client);
+		int GURUS=18;		
+		String[] gurus= new String[GURUS];
+		gurus[0]="David Einhorn";
+		gurus[1]="Mohnish Pabrai";
+		gurus[2]="Bill Ackman";
+		gurus[3]="Bruce Berkowitz";
+		gurus[4]="Carl Icahn"; 
+		gurus[5]="Chuck Akre"; 
+		gurus[6]="Daniel Loeb";
+		gurus[7]="Wilbur Ross";
+		gurus[8]="Prem Watsa"; 
+		gurus[9]="John Paulson";
+		gurus[10]="Edward Lampert";
+		gurus[11]="Glenn Greenberg";
+		gurus[12]="Ian Cumming";
+		gurus[13]="Lou Simpson";
+		gurus[14]="Robert Rodriguez";
+		gurus[15]="David Swensen";
+		gurus[16]="T Boone Pickens";
+		gurus[17]="Robert Karr";
 		
+		//MAIN CALL		
+		for(int i=0; i<GURUS; i++)
+			printGuruData(gurus[i], 4.0f, client);		
+		
+		//Close
 		client.getConnectionManager().shutdown();
 	}
 	
