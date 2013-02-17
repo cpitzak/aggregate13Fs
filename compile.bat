@@ -1,2 +1,2 @@
-javac -cp ".\jar\*" *.java
+javac -cp ".\jar\*" -d output *.java
 pause

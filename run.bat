@@ -1,2 +1,2 @@
-java -cp ".;.\jar\*" GuruAggregator
+java -cp ".;output;.\jar\*" GuruAggregator
 pause
