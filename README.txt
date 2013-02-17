@@ -4,3 +4,8 @@ This app aggregates and creates a text report of 13Fs of famous guru investors. 
 
 Technical Details:
 This is not a critical app, so most Exceptions have not been handled. In case a Network/Internet call fails, the script can be re-run once connection is restored.
+
+Changelog
+----------------
+VER	Date		Change
+1.0	17 Feb 2013	Initial Working version
