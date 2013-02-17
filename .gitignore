@@ -1,5 +1,6 @@
 #My entries
 output/*
+*.class
 
 #################
 ## Eclipse
