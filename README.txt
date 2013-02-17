@@ -8,4 +8,7 @@ This is not a critical app, so most Exceptions have not been handled. In case a 
 Changelog
 ----------------
 VER	Date		Change
-1.0	17 Feb 2013	Initial Working version
+1.0	28 Jan 2013	Initial Working version
+
+1.1	17 Feb 2013	Faster version, more efficient handling of web requests
+			

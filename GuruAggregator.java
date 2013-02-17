@@ -1,18 +1,19 @@
+import java.util.LinkedList;
+
 import org.htmlcleaner.*;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 public class GuruAggregator 
 {
 	private static final String hr=Utils.hr;
-	private static final String hhr=Utils.hhr;
-	
+		
 	public static void main(String[] args) throws Exception
 	{
 		//Initialize
 		DefaultHttpClient client = new DefaultHttpClient();
 		Utils.guruFocusLogin(client);
 		
-		int GURUS=18;		
+		int GURUS=18;
 		String[] gurus= new String[GURUS];
 		gurus[0]="David Einhorn";
 		gurus[1]="Mohnish Pabrai";
@@ -47,6 +48,8 @@ public class GuruAggregator
 						
 		int pageNum=0;
 		
+		LinkedList<GuruTicker> tickers = new LinkedList<>();
+		
 top:	while(true)
 		{
 			String html = getPortfolioPage(guru, pageNum++, client);
@@ -66,17 +69,33 @@ top:	while(true)
 				float percent=Float.parseFloat(td[5].getText().toString().trim().replace("%",""));
 				
 				if (percent < minPercent) break top;
-								
-				System.out.printf("\n"+hhr+ticker+hhr+"\n%.1f%%\n\n", percent);
-				GuruStockAggregator.printGuruStockData(guru, ticker);
 				
+				tickers.add(new GuruTicker(ticker, percent));
 			}
 		}
+				
+		GuruStockAggregator.printGuruStockData(guru, tickers);
 		
 	}
 	
 	private static String getPortfolioPage(String guru, int pageNum, DefaultHttpClient client) throws Exception
 	{
 		return Utils.getWebPageContents(client, "http://www.gurufocus.com/modules/holdings/holdings_ajax.php?GuruName="+guru.replace(" ","+")+"&sort=position&order=desc&p="+pageNum);				
+	}
+}
+
+class GuruTicker
+{
+	public String ticker;
+	public float percent;
+	
+	public boolean buyFound=false; 
+	public StockEntryDoubleLinkedList entryList = new StockEntryDoubleLinkedList();
+	public float curPrice=-1.0f;
+	
+	public GuruTicker(String ticker, float percent)
+	{
+		this.ticker=ticker;
+		this.percent=percent;
 	}
 }

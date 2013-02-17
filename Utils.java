@@ -51,8 +51,8 @@ public class Utils
         List <NameValuePair> nvps = new ArrayList <NameValuePair>();
         nvps.add(new BasicNameValuePair("forum_id", "0"));
         nvps.add(new BasicNameValuePair("redir", "http://www.gurufocus.com/forum/index.php"));
-        nvps.add(new BasicNameValuePair("username", "maxhat"));
-        nvps.add(new BasicNameValuePair("password", "tmaxha"));
+        nvps.add(new BasicNameValuePair("username", Credentials.username));
+        nvps.add(new BasicNameValuePair("password", Credentials.password));
 
         httpost.setEntity(new UrlEncodedFormEntity(nvps, Consts.UTF_8));
 

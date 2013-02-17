@@ -1,11 +1,12 @@
 import java.text.NumberFormat;
+import java.util.LinkedList;
 import java.io.*;
 
 import org.htmlcleaner.*;
 
 public class GuruStockAggregator 
 {
-	
+	private static final String hhr=Utils.hhr;
 	
 	//TEST
 	public static void main(String[] args) throws Exception
@@ -53,7 +54,10 @@ public class GuruStockAggregator
 		System.out.println("Guru: \t\t"+guru);		
 		System.out.println("Ticker: \t"+ticker);
 						
-		printGuruStockData(guru, ticker);
+		LinkedList<GuruTicker> tickers=new LinkedList<>();
+		tickers.add(new GuruTicker(ticker, -1.0f));
+		
+		printGuruStockData(guru, tickers);
 		
 		System.out.println("\nPress <ENTER> to exit...");
 		br.readLine();
@@ -73,16 +77,15 @@ public class GuruStockAggregator
 	*/
 	
 	//MAIN FUNCTION
-	public static void printGuruStockData(String guru, String ticker) throws Exception  //Gurufocus
-	{			
-		float curPrice=0.0f;
-		
-		StockEntryDoubleLinkedList list=new StockEntryDoubleLinkedList();
-		
-		Boolean buyFound=false;
+	public static void printGuruStockData(String guru, LinkedList<GuruTicker> tickers) throws Exception
+	{		
 		int pageNum=0;
-		while(!buyFound)			
+		int numDone=0;
+		
+		while(true)
 		{
+			if(numDone==tickers.size()) break;
+	
 			String html=getTxPage(guru,pageNum++);
 			
 			HtmlCleaner hc=new HtmlCleaner();
@@ -90,67 +93,81 @@ public class GuruStockAggregator
 			
 			Object[] test=root.evaluateXPath("//body/table");
 			if(test.length==0) break;
-			
-			Object[] nodes=root.evaluateXPath("//td[text()='"+ticker+"']");
-			
-			for(Object obj : nodes)
+
+			for(GuruTicker t : tickers)
 			{
-				TagNode node=(TagNode) obj;
-				TagNode[] td=node.getParent().getElementsByName("td", false);
+				if(t.buyFound) continue;
 				
-				String date=td[2].getText().toString().trim();
+				Object[] nodes=root.evaluateXPath("//td[text()='"+t.ticker+"']");
 				
-				String entryType=td[3].getText().toString().trim();
-				buyFound=entryType.equals("Buy");
-				
-				String price=td[5].getText().toString();
-				
-				String avgPrice=price;
-				if(avgPrice.contains("("))
-					avgPrice=avgPrice.substring(avgPrice.indexOf("(")+1,avgPrice.indexOf(")"));
-				avgPrice=avgPrice.trim();
-				if (avgPrice.charAt(0)=='$') avgPrice=avgPrice.substring(1);
-				float fAvgPrice=Float.parseFloat(avgPrice);
-				
-				String minPrice=price;
-				float fMinPrice=-1.0f;
-				if(minPrice.contains("-"))  //Otherwise no minPrice entry
+				for(Object obj : nodes)
 				{
-					minPrice=minPrice.substring(0,minPrice.indexOf("-"));
-					minPrice=minPrice.trim();
-					if (minPrice.charAt(0)=='$') minPrice=minPrice.substring(1);
-					fMinPrice=Float.parseFloat(minPrice);
-				}
-						
-				if (curPrice==0)
-				{
-					String sCurPrice=td[6].getText().toString().trim();
-					if(sCurPrice.charAt(0)=='$') sCurPrice=sCurPrice.substring(1);
-					curPrice=Float.parseFloat(sCurPrice);					
-				}
-				
-				String sNumShares=td[9].getText().toString().trim();
-				int numShares=NumberFormat.getInstance().parse(sNumShares.length()==0?"-1":sNumShares).intValue();
+					if(t.buyFound) break;
 					
-				list.addStockEntry(date, entryType, fAvgPrice, fMinPrice, numShares);
+					TagNode node=(TagNode) obj;
+					TagNode[] td=node.getParent().getElementsByName("td", false);
+					
+					String date=td[2].getText().toString().trim();
+					
+					String entryType=td[3].getText().toString().trim();
+					t.buyFound=entryType.equals("Buy");
+					if(t.buyFound) numDone++;
+					
+					String price=td[5].getText().toString();
+					
+					String avgPrice=price;
+					if(avgPrice.contains("("))
+						avgPrice=avgPrice.substring(avgPrice.indexOf("(")+1,avgPrice.indexOf(")"));
+					avgPrice=avgPrice.trim();
+					if (avgPrice.charAt(0)=='$') avgPrice=avgPrice.substring(1);
+					float fAvgPrice=Float.parseFloat(avgPrice);
+					
+					String minPrice=price;
+					float fMinPrice=-1.0f;
+					if(minPrice.contains("-"))  //Otherwise no minPrice entry
+					{
+						minPrice=minPrice.substring(0,minPrice.indexOf("-"));
+						minPrice=minPrice.trim();
+						if (minPrice.charAt(0)=='$') minPrice=minPrice.substring(1);
+						fMinPrice=Float.parseFloat(minPrice);
+					}
+							
+					if (t.curPrice==-1.0f)
+					{
+						String sCurPrice=td[6].getText().toString().trim();
+						if(sCurPrice.charAt(0)=='$') sCurPrice=sCurPrice.substring(1);
+						t.curPrice=Float.parseFloat(sCurPrice);					
+					}
+					
+					String sNumShares=td[9].getText().toString().trim();
+					int numShares=NumberFormat.getInstance().parse(sNumShares.length()==0?"-1":sNumShares).intValue();
+						
+					t.entryList.addStockEntry(date, entryType, fAvgPrice, fMinPrice, numShares);
+				}
 			}
 		}
 				
-		if (list.latest==null)
-		{
-			System.out.println("No data");
-			return;
+		for (GuruTicker t : tickers)
+		{			
+			System.out.printf("\n"+hhr+t.ticker+hhr+"\n%.1f%%\n\n", t.percent);
+			
+			if (t.entryList.latest==null)
+			{
+				System.out.println("No data");
+				continue;
+			}
+			
+			t.entryList.adjustTxShares();
+			
+			t.entryList.printOldestToLatest();
+			
+			t.entryList.calcPrintCostBases();	
+			
+			System.out.printf("CUR: \t%.2f",t.curPrice);
+			System.out.println();
+			
+			if (!t.buyFound) System.out.println("BUY NOT FOUND");
 		}
-		
-		list.adjustTxShares();
-		
-		list.printOldestToLatest();
-		
-		list.calcPrintCostBases();	
-		
-		System.out.printf("CUR: \t%.2f\n",curPrice);
-		
-		if (!buyFound) System.out.println("BUY NOT FOUND");
 	}
 	
 	private static String getTxPage(String guru, int pageNum) throws Exception
