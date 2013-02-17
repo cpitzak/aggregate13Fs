@@ -112,12 +112,15 @@ public class GuruStockAggregator
 				if (avgPrice.charAt(0)=='$') avgPrice=avgPrice.substring(1);
 				float fAvgPrice=Float.parseFloat(avgPrice);
 				
-				String minPrice=price;				
-				if(minPrice.contains("-"))
+				String minPrice=price;
+				float fMinPrice=-1.0f;
+				if(minPrice.contains("-"))  //Otherwise no minPrice entry
+				{
 					minPrice=minPrice.substring(0,minPrice.indexOf("-"));
-				minPrice=minPrice.trim();
-				if (minPrice.charAt(0)=='$') minPrice=minPrice.substring(1);
-				float fMinPrice=Float.parseFloat(minPrice);
+					minPrice=minPrice.trim();
+					if (minPrice.charAt(0)=='$') minPrice=minPrice.substring(1);
+					fMinPrice=Float.parseFloat(minPrice);
+				}
 						
 				if (curPrice==0)
 				{
