@@ -13,7 +13,7 @@ public class GuruAggregator
 		DefaultHttpClient client = new DefaultHttpClient();
 		Utils.guruFocusLogin(client);
 		
-		int GURUS=18;
+		int GURUS=19;
 		String[] gurus= new String[GURUS];
 		gurus[0]="David Einhorn";
 		gurus[1]="Mohnish Pabrai";
@@ -33,8 +33,9 @@ public class GuruAggregator
 		gurus[15]="David Swensen";
 		gurus[16]="T Boone Pickens";
 		gurus[17]="Robert Karr";
+		gurus[18]="Seth Klarman";
 		
-		//MAIN CALL		
+		//MAIN CALL
 		for(int i=0; i<GURUS; i++)
 			printGuruData(gurus[i], 4.0f, client);		
 		
