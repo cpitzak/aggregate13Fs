@@ -6,7 +6,52 @@ import org.apache.http.impl.client.DefaultHttpClient;
 public class GuruAggregator 
 {
 	private static final String hr=Utils.hr;
+	
+	public static void main(String[] args) throws Exception
+	{
+		float minPercent=10.0f;
+				
+		try
+		{
+			minPercent=Float.parseFloat(args[0]);						
+		}
+		catch(Exception ex)
+		{}			
 		
+		System.err.printf("Min Percent: %.2f\n",minPercent);
+		
+		//Initialize
+		DefaultHttpClient client = new DefaultHttpClient();
+		Utils.guruFocusLogin(client);
+		
+		//MAIN SECTION
+		//Get & Process List of Gurus
+		HtmlCleaner hc = new HtmlCleaner();
+		TagNode root=hc.clean(Utils.getWebPageContents(client, "http://www.gurufocus.com/ListGuru.php"));
+		
+		Object[] gurus=root.evaluateXPath("//a[@class='gurunames']");
+		
+		for(Object tmp : gurus)
+		{
+			String guru=((TagNode) tmp).getText().toString().trim();
+			
+			System.err.println(guru);
+			
+			if (((TagNode)tmp).getParent().getAttributeByName("class").contains("premium"))
+			{
+				//System.out.println(hr + guru + hr + "\nPremium\n");
+				continue;
+			}
+			
+			printGuruData(guru, minPercent, client);			
+		}
+		
+		//Close
+		client.getConnectionManager().shutdown();
+	}
+	
+	//Old main which processed only listed gurus
+	/*
 	public static void main(String[] args) throws Exception
 	{
 		//Initialize
@@ -42,6 +87,7 @@ public class GuruAggregator
 		//Close
 		client.getConnectionManager().shutdown();
 	}
+	*/
 	
 	public static void printGuruData(String guru, float minPercent, DefaultHttpClient client) throws Exception
 	{

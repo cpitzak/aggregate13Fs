@@ -62,32 +62,21 @@ public class GuruStockAggregator
 		System.out.println("\nPress <ENTER> to exit...");
 		br.readLine();
 	}
-	
-	/*
-	private static int tryParseInt(String value)  
-	{  
-	     try  
-	     {  
-	         return Integer.parseInt(value);  
-	      } catch(NumberFormatException nfe)  
-	      {  
-	          return -1;
-	      }  
-	}
-	*/
-	
+		
 	//MAIN FUNCTION
 	public static void printGuruStockData(String guru, LinkedList<GuruTicker> tickers) throws Exception
-	{		
+	{
 		int pageNum=0;
 		int numDone=0;
 		
-		while(true)
+		String html=getFirstTxPage(guru);
+				
+		do
 		{
-			if(numDone==tickers.size()) break;
-	
-			String html=getTxPage(guru,pageNum++);
+			System.err.println("Page "+(pageNum++));
 			
+			if(numDone==tickers.size()) break;			
+				
 			HtmlCleaner hc=new HtmlCleaner();
 			TagNode root=hc.clean(html);
 			
@@ -145,11 +134,20 @@ public class GuruStockAggregator
 					t.entryList.addStockEntry(date, entryType, fAvgPrice, fMinPrice, numShares);
 				}
 			}
+			
+			
+			test=root.evaluateXPath("//img[@src='http://static.gurufocus.com/images/icons/gray/png/playback_play_icon&16.png']");
+			if(test.length==0) break;
+			
+			html=getNextTxPage(((TagNode)test[0]).getParent().getAttributeByName("href"));
 		}
+		while(true);
 				
 		for (GuruTicker t : tickers)
 		{			
 			System.out.printf("\n"+hhr+t.ticker+hhr+"\n%.1f%%\n\n", t.percent);
+			
+			System.err.println(t.ticker);
 			
 			if (t.entryList.latest==null)
 			{
@@ -159,20 +157,25 @@ public class GuruStockAggregator
 			
 			t.entryList.adjustTxShares();
 			
+			System.out.printf("CUR: \t%.2f",t.curPrice);
+			System.out.println("\n");
+			
 			t.entryList.printOldestToLatest();
 			
 			t.entryList.calcPrintCostBases();	
-			
-			System.out.printf("CUR: \t%.2f",t.curPrice);
-			System.out.println();
-			
+						
 			if (!t.buyFound) System.out.println("BUY NOT FOUND");
 		}
 	}
 	
-	private static String getTxPage(String guru, int pageNum) throws Exception
+	private static String getFirstTxPage(String guru) throws Exception
 	{
-		return Utils.getWebPageContents("http://www.gurufocus.com/modules/stock/StockBuy_ajax.php?GuruName="+guru.replace(" ", "+")+"&p="+pageNum);				
+		return Utils.getWebPageContents("http://www.gurufocus.com/modules/stock/StockBuy_ajax.php?GuruName="+guru.replace(" ", "+"));				
+	}
+	
+	private static String getNextTxPage(String relativeURL) throws Exception
+	{
+		return Utils.getWebPageContents("http://www.gurufocus.com" + relativeURL);
 	}
 	
 	
@@ -221,18 +224,23 @@ class StockEntryDoubleLinkedList
 	public void calcPrintCostBases()
 	{		
 		float avg=0.0f, min=0.0f;
+		int numShares=0;
 		StockEntry se=latest;
 		
 		do
 		{
-			avg+=se.avgPrice*se.numShares;
-			min+=se.minPrice*se.numShares;
+			if(se.entryType.equals("Buy") || se.entryType.equals("Add"))
+			{
+				avg+=se.avgPrice*se.numShares;
+				min+=se.minPrice*se.numShares;
+				numShares+=se.numShares;
+			}
 		}
 		while((se=se.older)!=null);
 		
 		System.out.printf("Final shares: \t%,d\n\n",finalShares);
-		System.out.printf("AVG: \t%.2f\n", avg/finalShares);
-		System.out.printf("MIN: \t%.2f\n", min/finalShares);
+		System.out.printf("AVG: \t%.2f\n", avg/numShares);
+		System.out.printf("MIN: \t%.2f\n", min/numShares);
 		
 	}
 	
