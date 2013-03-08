@@ -1,2 +1,2 @@
-java -cp ".;output;.\jar\*" GuruAggregator > "A:\DESKTOP\output.txt"
+java -cp ".;output;.\jar\*" GuruAggregator 1> "A:\DESKTOP\output.txt"
 pause

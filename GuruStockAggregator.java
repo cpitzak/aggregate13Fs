@@ -11,28 +11,30 @@ public class GuruStockAggregator
 	//TEST
 	public static void main(String[] args) throws Exception
 	{	
-		int guruNum,GURUS=18;
+		int guruNum,GURUS=0;
 		String guru,ticker; 
-		
-		String[] gurus= new String[GURUS];
-		gurus[0]="David Einhorn";
-		gurus[1]="Mohnish Pabrai";
-		gurus[2]="Bill Ackman";
-		gurus[3]="Bruce Berkowitz";
-		gurus[4]="Carl Icahn"; 
-		gurus[5]="Chuck Akre"; 
-		gurus[6]="Daniel Loeb";
-		gurus[7]="Wilbur Ross";
-		gurus[8]="Prem Watsa"; 
-		gurus[9]="John Paulson";
-		gurus[10]="Edward Lampert";
-		gurus[11]="Glenn Greenberg";
-		gurus[12]="Ian Cumming";
-		gurus[13]="Lou Simpson";
-		gurus[14]="Robert Rodriguez";
-		gurus[15]="David Swensen";
-		gurus[16]="T Boone Pickens";
-		gurus[17]="Robert Karr";
+				
+		String[] gurus= new String[100];
+		gurus[GURUS++]="David Einhorn";
+		gurus[GURUS++]="Mohnish Pabrai";
+		gurus[GURUS++]="Bruce Berkowitz";
+		gurus[GURUS++]="Seth Klarman";
+		gurus[GURUS++]="Wilbur Ross";
+		gurus[GURUS++]="Prem Watsa"; 
+		gurus[GURUS++]="David Winters";
+		gurus[GURUS++]="John Paulson";
+		gurus[GURUS++]="Bill Ackman";
+		gurus[GURUS++]="Carl Icahn"; 
+		gurus[GURUS++]="Chuck Akre"; 
+		gurus[GURUS++]="Daniel Loeb";
+		gurus[GURUS++]="Edward Lampert";
+		gurus[GURUS++]="Glenn Greenberg";
+		gurus[GURUS++]="Ian Cumming";
+		gurus[GURUS++]="Lou Simpson";
+		gurus[GURUS++]="Robert Rodriguez";
+		gurus[GURUS++]="David Swensen";
+		gurus[GURUS++]="T Boone Pickens";
+		gurus[GURUS++]="Robert Karr";
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		for(int i=0; i<GURUS; i++)
@@ -51,16 +53,16 @@ public class GuruStockAggregator
 		ticker=br.readLine();
 		ticker=ticker.toUpperCase();
 		
-		System.out.println("Guru: \t\t"+guru);		
-		System.out.println("Ticker: \t"+ticker);
+		System.out.println("\n"+hhr+guru+hhr);
+		//System.out.println("Ticker: \t"+ticker);
 						
 		LinkedList<GuruTicker> tickers=new LinkedList<>();
 		tickers.add(new GuruTicker(ticker, -1.0f));
 		
 		printGuruStockData(guru, tickers);
 		
-		System.out.println("\nPress <ENTER> to exit...");
-		br.readLine();
+		//System.out.println("\nPress <ENTER> to exit...");
+		//br.readLine();
 	}
 		
 	//MAIN FUNCTION
