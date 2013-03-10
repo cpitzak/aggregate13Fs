@@ -16,7 +16,7 @@ public class GuruAggregator
 			minPercent=Float.parseFloat(args[0]);						
 		}
 		catch(Exception ex)
-		{}			
+		{}
 		
 		System.err.printf("Min Percent: %.2f\n",minPercent);
 		
