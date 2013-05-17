@@ -1,17 +1,15 @@
 package guru.aggregator.model;
 
 /**
- * Defines a stock entry.
+ * Defines a transaction.
  */
-public class StockEntry {
+public class Transaction {
 
 	private String date;
 	private String entryType;
 	private float averagePrice;
 	private float minimumPrice;
 	private int numberOfShares;
-	private StockEntry older;
-	private StockEntry later;
 
 	/**
 	 * Constructs a stock entry.
@@ -27,8 +25,7 @@ public class StockEntry {
 	 * @param numberOfShares
 	 *            the number of shares to use
 	 */
-	public StockEntry(String date, String entryType, float averagePrice,
-			float minimumPrice, int numberOfShares) {
+	public Transaction(String date, String entryType, float averagePrice, float minimumPrice, int numberOfShares) {
 		this.date = date;
 		this.entryType = entryType;
 		this.averagePrice = averagePrice;
@@ -109,36 +106,6 @@ public class StockEntry {
 	 */
 	public void setNumberOfShares(int numberOfShares) {
 		this.numberOfShares = numberOfShares;
-	}
-
-	/**
-	 * @return the older
-	 */
-	public StockEntry getOlder() {
-		return older;
-	}
-
-	/**
-	 * @param older
-	 *            the older to set
-	 */
-	public void setOlder(StockEntry older) {
-		this.older = older;
-	}
-
-	/**
-	 * @return the later
-	 */
-	public StockEntry getLater() {
-		return later;
-	}
-
-	/**
-	 * @param later
-	 *            the later to set
-	 */
-	public void setLater(StockEntry later) {
-		this.later = later;
 	}
 
 }

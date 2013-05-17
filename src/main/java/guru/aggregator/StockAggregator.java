@@ -106,7 +106,7 @@ public class StockAggregator {
 							.parse(sNumShares.length() == 0 ? "-1" : sNumShares)
 							.intValue();
 
-					ticker.getEntryList().addStockEntry(date, entryType,
+					ticker.getTransactionHistory().add(date, entryType,
 							fAvgPrice, fMinPrice, numShares);
 				}
 			}
@@ -126,19 +126,19 @@ public class StockAggregator {
 
 			System.err.println(ticker.getTicker());
 
-			if (ticker.getEntryList().getLatest() == null) {
+			if (ticker.getTransactionHistory().isEmpty()) {
 				System.out.println("No data");
 				continue;
 			}
 
-			ticker.getEntryList().adjustTxShares();
+			ticker.getTransactionHistory().adjustTxShares();
 
 			System.out.printf("CUR: \t%.2f", ticker.getCurrentPrice());
 			System.out.println("\n");
 
-			ticker.getEntryList().printOldestToLatest();
+			ticker.getTransactionHistory().printOldestToLatest();
 
-			ticker.getEntryList().calcPrintCostBases();
+			ticker.getTransactionHistory().calcPrintCostBases();
 
 			if (!ticker.isBuyFound())
 				System.out.println("BUY NOT FOUND");

@@ -9,7 +9,7 @@ public class Ticker {
 	private float percent;
 
 	private boolean buyFound;
-	private StockEntryDoubleLinkedList entryList = new StockEntryDoubleLinkedList();
+	private TransactionHistory transactionHistory = new TransactionHistory();
 	private float currentPrice = -1.0f;
 
 	/**
@@ -73,8 +73,8 @@ public class Ticker {
 	/**
 	 * @return the entryList
 	 */
-	public StockEntryDoubleLinkedList getEntryList() {
-		return entryList;
+	public TransactionHistory getTransactionHistory() {
+		return transactionHistory;
 	}
 
 	/**
