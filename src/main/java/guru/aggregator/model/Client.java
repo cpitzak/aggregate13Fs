@@ -35,13 +35,18 @@ public class Client {
 	 * @throws Exception
 	 *             throws an exception while trying to login.
 	 */
-	public void login(String username, String password)
-			throws ClientProtocolException, IOException {
+	public void login(String username, String password) {
 		client = new DefaultHttpClient();
 		HttpGet httpget = new HttpGet(
 				"http://www.gurufocus.com/forum/login.php");
 
-		EntityUtils.consume(client.execute(httpget).getEntity());
+		try {
+			EntityUtils.consume(client.execute(httpget).getEntity());
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		HttpPost httpost = new HttpPost(
 				"http://www.gurufocus.com/forum/login.php");
@@ -55,7 +60,13 @@ public class Client {
 
 		httpost.setEntity(new UrlEncodedFormEntity(nvps, Consts.UTF_8));
 
-		EntityUtils.consume(client.execute(httpost).getEntity());
+		try {
+			EntityUtils.consume(client.execute(httpost).getEntity());
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 

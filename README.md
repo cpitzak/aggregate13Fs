@@ -11,7 +11,8 @@ are buying and selling each quarter.
 
 ## Sample Runs
 
-  * [David Einhorn](sample_runs/david_einhorn.txt)	
+  * [David Einhorn](sample_runs/david_einhorn.txt)
+  * [AAPL Trends](sample_runs/appl_trends.txt)
 
 ## More Information
 

@@ -1,6 +1,8 @@
-package guru.aggregator;
+package guru.aggregator.aggregators;
 
+import guru.aggregator.interfaces.HoldingsTable;
 import guru.aggregator.model.Client;
+import guru.aggregator.model.Filters;
 import guru.aggregator.model.Guru;
 import guru.aggregator.model.Ticker;
 
@@ -14,50 +16,114 @@ import org.apache.http.client.ClientProtocolException;
 import org.htmlcleaner.HtmlCleaner;
 import org.htmlcleaner.TagNode;
 import org.htmlcleaner.XPatherException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Defines an stock aggregator to aggregate over the stocks data from the guru's
- * 13F forms.
+ * Aggregates over the stocks data from the guru's 13F forms.
  */
-public class StockAggregator {
+public class GuruDataAggregator {
+	private static final Logger logger = LoggerFactory
+			.getLogger(GuruDataAggregator.class);
 	private static final String hr = Client.hr;
 	private Client client;
 
 	/**
-	 * Creates an stock aggregator with the given client.
+	 * Creates an aggregator with the given client.
 	 * 
 	 * @param client
 	 *            the client to use
 	 */
-	public StockAggregator(Client client) {
+	public GuruDataAggregator(Client client) {
 		this.client = client;
+	}
+
+	public Guru getGuruWithFilters(String guruName, Filters filters) {
+		List<Ticker> tickers = getTickers(guruName, filters);
+		Guru guru = null;
+		if (!tickers.isEmpty()) {
+			System.out.println(hr + guruName + hr);
+			guru = buildGuruStockData(guruName, tickers);
+		} else {
+			System.out.println("Searching...");
+		}
+		return guru;
 	}
 
 	public Guru getGuru(String guruName) {
 		System.out.println(hr + guruName + hr);
+		List<Ticker> tickers = getTickers(guruName, null);
+		return buildGuruStockData(guruName, tickers);
+	}
+
+	private List<Ticker> getTickers(String guruName, Filters filters) {
 		List<Ticker> tickers = new ArrayList<Ticker>();
 		int pageNumber = 0;
 		Object[] rows = null;
 		rows = getGuruTableRows(guruName, pageNumber);
 		while (rows.length > 0) {
-			if (!addTickers(tickers, rows)) {
-				break;
-			}
+			addTickers(tickers, rows, filters);
 			pageNumber++;
 			rows = getGuruTableRows(guruName, pageNumber);
 		}
-		return buildGuruStockData(guruName, tickers);
+		return tickers;
+	}
+
+	private void addTickers(List<Ticker> tickers, Object[] rows, Filters filters) {
+		for (Object row : rows) {
+			Ticker ticker = getTicker(row);
+			if (filters != null) {
+				if (filters.isTickerSymbolFound(ticker.getTickerSymbol())) {
+					tickers.add(ticker);
+				}
+			} else {
+				tickers.add(ticker);
+			}
+		}
+	}
+
+	private Ticker getTicker(Object row) {
+		TagNode[] td = ((TagNode) row).getElementsByName("td", false);
+		String tickerSymbol = td[HoldingsTable.TICKER_SYMBOL_COLUMN].getText()
+				.toString().trim();
+		float percent = 0;
+		try {
+			String percentStr = td[HoldingsTable.PERCENT_WEIGHT_AS_OF_LATEST_QUARTER_COLUMN]
+					.getText().toString().trim().replace("%", "");
+			percent = Float.parseFloat(percentStr);
+		} catch (NumberFormatException e) {
+			logger.debug(tickerSymbol + " ticker sold out. 0% of portfolio.");
+		}
+		return new Ticker(tickerSymbol, percent);
+	}
+
+	private Object[] getGuruTableRows(String guru, int pageNumber) {
+		String html = getPortfolioPage(guru, pageNumber);
+
+		HtmlCleaner hc = new HtmlCleaner();
+		TagNode root = hc.clean(html);
+
+		Object[] rows = null;
+		try {
+			rows = root.evaluateXPath("//table[@id='Rf1']/tbody/tr[@title]");
+		} catch (XPatherException e) {
+			e.printStackTrace();
+		}
+		return rows;
 	}
 
 	// TODO: clean up complexity of this method
 	private Guru buildGuruStockData(String guruName, List<Ticker> tickers) {
 		int pageNum = 0;
 		int numDone = 0;
-
+		final int MAX_SCREEN_LINE = 24;
 		String html = getFirstTxPage(guruName);
-
+		System.out.print("Page(s) [ ");
 		do {
-			System.err.println("Page " + (pageNum++));
+			System.out.print(pageNum++ + " ");
+			if (pageNum % MAX_SCREEN_LINE == 0) {
+				System.out.println();
+			}
 
 			if (numDone == tickers.size())
 				break;
@@ -81,7 +147,8 @@ public class StockAggregator {
 
 				Object[] nodes = null;
 				try {
-					nodes = root.evaluateXPath("//td[text()='" + ticker.getTicker() + "']");
+					nodes = root.evaluateXPath("//td[text()='"
+							+ ticker.getTickerSymbol() + "']");
 				} catch (XPatherException e) {
 					e.printStackTrace();
 				}
@@ -91,7 +158,8 @@ public class StockAggregator {
 						break;
 
 					TagNode node = (TagNode) obj;
-					TagNode[] td = node.getParent().getElementsByName("td", false);
+					TagNode[] td = node.getParent().getElementsByName("td",
+							false);
 
 					String date = td[2].getText().toString().trim();
 
@@ -104,7 +172,9 @@ public class StockAggregator {
 
 					String avgPrice = price;
 					if (avgPrice.contains("("))
-						avgPrice = avgPrice.substring(avgPrice.indexOf("(") + 1, avgPrice.indexOf(")"));
+						avgPrice = avgPrice.substring(
+								avgPrice.indexOf("(") + 1,
+								avgPrice.indexOf(")"));
 					avgPrice = avgPrice.trim();
 					if (avgPrice.charAt(0) == '$')
 						avgPrice = avgPrice.substring(1);
@@ -131,13 +201,16 @@ public class StockAggregator {
 					String sNumShares = td[9].getText().toString().trim();
 					int numShares = -1;
 					try {
-						numShares = NumberFormat.getInstance().parse(sNumShares.length() == 0 ? "-1" : sNumShares)
-								.intValue();
+						numShares = NumberFormat
+								.getInstance()
+								.parse(sNumShares.length() == 0 ? "-1"
+										: sNumShares).intValue();
 					} catch (ParseException e) {
 						e.printStackTrace();
 					}
 
-					ticker.getTransactionHistory().add(date, entryType, fAvgPrice, fMinPrice, numShares);
+					ticker.getTransactionHistory().add(date, entryType,
+							fAvgPrice, fMinPrice, numShares);
 				}
 			}
 
@@ -151,38 +224,11 @@ public class StockAggregator {
 			if (test.length == 0)
 				break;
 
-			html = getNextTxPage(((TagNode) test[0]).getParent().getAttributeByName("href"));
+			html = getNextTxPage(((TagNode) test[0]).getParent()
+					.getAttributeByName("href"));
 		} while (true);
+		System.out.println("]");
 		return new Guru(guruName, tickers);
-	}
-
-	private Object[] getGuruTableRows(String guru, int pageNumber) {
-		String html = getPortfolioPage(guru, pageNumber);
-
-		HtmlCleaner hc = new HtmlCleaner();
-		TagNode root = hc.clean(html);
-
-		Object[] rows = null;
-		try {
-			rows = root.evaluateXPath("//table[@id='Rf1']/tbody/tr[@title]");
-		} catch (XPatherException e) {
-			e.printStackTrace();
-		}
-		return rows;
-	}
-
-	private boolean addTickers(List<Ticker> tickers, Object[] rows) {
-		for (Object row : rows) {
-			TagNode[] td = ((TagNode) row).getElementsByName("td", false);
-			String ticker = td[0].getText().toString().trim();
-			try {
-				float percent = Float.parseFloat(td[5].getText().toString().trim().replace("%", ""));
-				tickers.add(new Ticker(ticker, percent));
-			} catch (NumberFormatException e) {
-				return false;
-			}
-		}
-		return true;
 	}
 
 	private String getPortfolioPage(String guru, int pageNum) {
@@ -190,7 +236,8 @@ public class StockAggregator {
 		try {
 			portfolioPage = client
 					.getWebPageContentsAsMember("http://www.gurufocus.com/modules/holdings/holdings_ajax.php?GuruName="
-							+ guru.replace(" ", "+") + "&sort=position&order=desc&p=" + pageNum);
+							+ guru.replace(" ", "+")
+							+ "&sort=position&order=desc&p=" + pageNum);
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -214,7 +261,8 @@ public class StockAggregator {
 	private String getNextTxPage(String relativeURL) {
 		String nextTxPage = null;
 		try {
-			nextTxPage = client.getWebPageContents("http://www.gurufocus.com" + relativeURL);
+			nextTxPage = client.getWebPageContents("http://www.gurufocus.com"
+					+ relativeURL);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

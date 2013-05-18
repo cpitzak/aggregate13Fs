@@ -1,10 +1,10 @@
-$ java -jar 13FAggregator.jar 
 Welcome to the 13F Aggregator!
 
 This aggregator requires an account from gurufocus.com
 
 Enter your username: this_is_my_free_account_username_which_is_my_email
 Enter your password: this_is_my_free_account_password
+
 1. Arnold Van Den Berg
 2. Bruce Berkowitz
 3. Carl Icahn
@@ -85,41 +85,16 @@ Enter your password: this_is_my_free_account_password
 78. Ted Weschler
 79. Third Avenue Management
 80. Whitney Tilson
+
 Guru to aggregate[number or all]: 59
+Filter on symbol[symbol or no]: no
 
 ------------------------------
 David Einhorn
 ------------------------------
 
-Page 0
-Page 1
-Page 2
-Page 3
-Page 4
-Page 5
-Page 6
-Page 7
-Page 8
-Page 9
-Page 10
-Page 11
-Page 12
-Page 13
-Page 14
-Page 15
-Page 16
-Page 17
-Page 18
-Page 19
-Page 20
-Page 21
-Page 22
-Page 23
-Page 24
-Page 25
-Page 26
-Page 27
-Page 28
+Page(s) [ 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
+24 25 26 27 28 ]
 
 ---------------
 AAPL
@@ -142,6 +117,7 @@ Final shares: 	2,397,706
 AVG: 	$389.95
 MIN: 	$353.98
 
+
 ---------------
 GM
 ---------------
@@ -160,6 +136,7 @@ Final shares: 	21,582,063
 
 AVG: 	$25.14
 MIN: 	$21.13
+
 
 ---------------
 MRVL
@@ -180,6 +157,7 @@ Final shares: 	51,802,443
 AVG: 	$11.45
 MIN: 	$9.73
 
+
 ---------------
 CI
 ---------------
@@ -196,6 +174,7 @@ Final shares: 	8,186,000
 AVG: 	$46.35
 MIN: 	$43.06
 
+
 ---------------
 AET
 ---------------
@@ -211,6 +190,7 @@ Final shares: 	6,508,215
 
 AVG: 	$42.59
 MIN: 	$39.17
+
 
 ---------------
 CSC
@@ -230,6 +210,7 @@ Final shares: 	5,916,261
 AVG: 	$28.47
 MIN: 	$23.78
 
+
 ---------------
 DLPH
 ---------------
@@ -244,6 +225,7 @@ Final shares: 	5,991,820
 
 AVG: 	$21.06
 MIN: 	$19.63
+
 
 ---------------
 NCR
@@ -261,6 +243,7 @@ Final shares: 	10,259,790
 AVG: 	$13.05
 MIN: 	$11.52
 
+
 ---------------
 VMED
 ---------------
@@ -274,6 +257,7 @@ Final shares: 	4,920,000
 
 AVG: 	$23.29
 MIN: 	$21.46
+
 
 ---------------
 GDX
@@ -291,6 +275,7 @@ Final shares: 	7,264,971
 AVG: 	$44.42
 MIN: 	$38.34
 
+
 ---------------
 OIS
 ---------------
@@ -304,6 +289,7 @@ Final shares: 	2,700,000
 
 AVG: 	$77.67
 MIN: 	$71.54
+
 
 ---------------
 STX
@@ -325,6 +311,7 @@ Final shares: 	5,392,100
 AVG: 	$19.50
 MIN: 	$16.45
 
+
 ---------------
 AHL
 ---------------
@@ -341,6 +328,7 @@ Final shares: 	4,914,782
 
 AVG: 	$22.79
 MIN: 	$20.11
+
 
 ---------------
 MSFT
@@ -367,6 +355,7 @@ AVG: 	$27.84
 MIN: 	$25.35
 BUY NOT FOUND
 
+
 ---------------
 CBS
 ---------------
@@ -385,6 +374,7 @@ Final shares: 	3,585,787
 AVG: 	$26.28
 MIN: 	$22.13
 
+
 ---------------
 BAGL
 ---------------
@@ -398,6 +388,7 @@ Final shares: 	10,733,469
 
 AVG: 	$17.20
 MIN: 	$16.72
+
 
 ---------------
 DST
@@ -417,6 +408,7 @@ Final shares: 	2,245,000
 AVG: 	$49.60
 MIN: 	$45.30
 
+
 ---------------
 S
 ---------------
@@ -434,6 +426,7 @@ Final shares: 	26,178,549
 AVG: 	$4.20
 MIN: 	$3.57
 
+
 ---------------
 BWC
 ---------------
@@ -449,6 +442,7 @@ Final shares: 	4,058,818
 AVG: 	$25.26
 MIN: 	$23.48
 
+
 ---------------
 HES
 ---------------
@@ -463,6 +457,7 @@ Final shares: 	1,245,000
 AVG: 	$64.78
 MIN: 	$52.96
 
+
 ---------------
 OAK
 ---------------
@@ -476,6 +471,7 @@ Final shares: 	1,851,812
 
 AVG: 	$38.15
 MIN: 	$34.94
+
 
 ---------------
 LM
@@ -492,6 +488,7 @@ Final shares: 	2,538,900
 
 AVG: 	$27.86
 MIN: 	$24.04
+
 
 ---------------
 GMCR - PUT
@@ -516,6 +513,7 @@ Final shares: 	1,967,500
 AVG: 	$45.46
 MIN: 	$41.44
 
+
 ---------------
 VOD
 ---------------
@@ -529,6 +527,7 @@ Final shares: 	1,600,000
 
 AVG: 	$26.62
 MIN: 	$25.01
+
 
 ---------------
 ACM
@@ -544,6 +543,7 @@ Final shares: 	1,173,147
 
 AVG: 	$19.60
 MIN: 	$16.48
+
 
 ---------------
 CVH
@@ -561,6 +561,7 @@ Final shares: 	826,700
 AVG: 	$31.89
 MIN: 	$28.95
 
+
 ---------------
 STBZ
 ---------------
@@ -574,6 +575,7 @@ Final shares: 	2,100,000
 
 AVG: 	$16.89
 MIN: 	$16.37
+
 
 ---------------
 SPR
@@ -589,6 +591,7 @@ Final shares: 	1,652,962
 AVG: 	$17.18
 MIN: 	$15.94
 
+
 ---------------
 WDC
 ---------------
@@ -602,6 +605,7 @@ Final shares: 	600,000
 
 AVG: 	$36.50
 MIN: 	$33.41
+
 
 ---------------
 FSC
@@ -617,6 +621,7 @@ Final shares: 	2,140,736
 AVG: 	$11.10
 MIN: 	$10.26
 
+
 ---------------
 IACI
 ---------------
@@ -630,6 +635,7 @@ Final shares: 	436,708
 
 AVG: 	$42.82
 MIN: 	$39.43
+
 
 ---------------
 CBF
@@ -645,6 +651,7 @@ Final shares: 	940,133
 AVG: 	$17.25
 MIN: 	$15.22
 
+
 ---------------
 TSRA
 ---------------
@@ -658,6 +665,7 @@ Final shares: 	695,580
 
 AVG: 	$15.05
 MIN: 	$11.27
+
 
 ---------------
 RJET
@@ -675,6 +683,7 @@ Final shares: 	984,033
 AVG: 	$12.39
 MIN: 	$8.29
 
+
 ---------------
 BIOF
 ---------------
@@ -690,6 +699,7 @@ Final shares: 	27,168,879
 AVG: 	$73.34
 MIN: 	$68.74
 
+
 ---------------
 NBHC
 ---------------
@@ -703,6 +713,7 @@ Final shares: 	332,693
 
 AVG: 	$18.50
 MIN: 	$17.96
+
 
 ---------------
 SYMM
@@ -719,3 +730,95 @@ Final shares: 	549,050
 
 AVG: 	$5.45
 MIN: 	$4.90
+
+
+---------------
+XRX
+---------------
+
+Portfolio Impact: 0.0%
+Current Share Price: $8.82
+
+Tx History:
+2011-12-31	 Buy	 7.90	 6.72	 16,952,432
+2012-06-30	 Add	 7.62	 6.99	 9,044,985
+2013-03-31	 Sold Out	 8.01	 6.82	 -25,997,417
+Final shares: 	0
+
+AVG: 	$7.80
+MIN: 	$6.81
+
+
+---------------
+ESV
+---------------
+
+Portfolio Impact: 0.0%
+Current Share Price: $62.15
+
+Tx History:
+2010-06-30	 Buy	 42.39	 34.45	 7,416,880
+2010-09-30	 Add	 42.93	 40.20	 1,594,724
+2011-03-31	 Reduce	 54.32	 50.10	 -4,605,000
+2011-09-30	 Add	 48.35	 40.42	 219,900
+2011-12-31	 Add	 48.23	 39.51	 425,334
+2012-03-31	 Reduce	 50.65	 47.12	 -1,209,473
+2013-03-31	 Sold Out	 61.08	 57.08	 -3,842,365
+Final shares: 	0
+
+AVG: 	$42.87
+MIN: 	$35.76
+
+
+---------------
+GOOG
+---------------
+
+Portfolio Impact: 0.0%
+Current Share Price: $909.18
+
+Tx History:
+2012-12-31	 Buy	 698.60	 647.18	 63,000
+2013-03-31	 Sold Out	 777.34	 702.87	 -63,000
+Final shares: 	0
+
+AVG: 	$698.60
+MIN: 	$647.18
+
+
+---------------
+NVR
+---------------
+
+Portfolio Impact: 0.0%
+Current Share Price: $1006.0
+
+Tx History:
+2010-03-31	 Buy	 714.89	 661.56	 55,719
+2010-06-30	 Add	 692.13	 642.83	 28,281
+2010-09-30	 Add	 632.99	 604.16	 40,000
+2011-12-31	 Reduce	 642.58	 575.28	 -22,233
+2012-03-31	 Reduce	 674.85	 671.00	 -37,717
+2013-03-31	 Sold Out	 1013.60	 920.00	 -64,050
+Final shares: 	0
+
+AVG: 	$683.28
+MIN: 	$638.77
+
+
+---------------
+YHOO
+---------------
+
+Portfolio Impact: 0.0%
+Current Share Price: $26.52
+
+Tx History:
+2012-09-30	 Buy	 15.60	 14.65	 5,050,000
+2013-03-31	 Sold Out	 21.04	 18.99	 -5,050,000
+Final shares: 	0
+
+AVG: 	$15.60
+MIN: 	$14.65
+
+Finished.

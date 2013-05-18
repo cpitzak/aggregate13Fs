@@ -1,4 +1,4 @@
-package guru.aggregator;
+package guru.aggregator.aggregators;
 
 import guru.aggregator.model.Client;
 import java.text.ParseException;
@@ -11,13 +11,13 @@ import org.htmlcleaner.TagNode;
 import org.htmlcleaner.XPatherException;
 
 /**
- * Defines a Guru HTML scrapper.
+ * Aggregates over guru names.
  *
  */
-public class GuruHTMLScrapper {
+public class GuruNameAggregator {
 	private Client client;
 	
-	public GuruHTMLScrapper(Client client) {
+	public GuruNameAggregator(Client client) {
 		this.client = client;
 	}
 

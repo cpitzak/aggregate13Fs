@@ -28,7 +28,7 @@ public class Ticker {
 	/**
 	 * @return the ticker
 	 */
-	public String getTicker() {
+	public String getTickerSymbol() {
 		return ticker;
 	}
 
