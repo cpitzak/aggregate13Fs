@@ -49,9 +49,9 @@ public class TransactionHistory {
 
 		System.out.printf("Final shares: \t%,d\n\n", finalShares);
 		setAvg(avg / numShares);
-		System.out.printf("AVG: \t%.2f\n", getAvg());
+		System.out.printf("AVG: \t$%.2f\n", getAvg());
 		setMin(min / numShares);
-		System.out.printf("MIN: \t%.2f\n", getMin());
+		System.out.printf("MIN: \t$%.2f\n", getMin());
 
 	}
 
@@ -72,7 +72,7 @@ public class TransactionHistory {
 	}
 
 	public void printOldestToLatest() {
-		System.out.println("Tx History:");
+		System.out.println("\nTx History:");
 		for (int i = transactions.size() - 1; i >= 0; i--) {
 			Transaction transaction = transactions.get(i);
 			System.out.printf("%s\t %s\t %.2f\t %.2f\t %,d\n", transaction.getDate(), transaction.getEntryType(),

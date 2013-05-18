@@ -1,5 +1,18 @@
 # 13F Aggregator
 
-This is a fork of the original 13F Aggregator located at: https://github.com/nileshbits/13FAggregator
+## About
+This aggregates [13F Forms](http://en.wikipedia.org/wiki/Form_13F) to gain insights about what the guru money managers and investors
+are buying and selling each quarter.
 
-See README.original.txt (original readme) for more information.
+
+## Run
+
+   	$ java -jar build/13FAggregator.jar
+
+## Sample Runs
+
+  * [David Einhorn](sample_runs/david_einhorn.txt)	
+
+## More Information
+
+This is a fork of the [13F Aggregator] (https://github.com/nileshbits/13FAggregator)

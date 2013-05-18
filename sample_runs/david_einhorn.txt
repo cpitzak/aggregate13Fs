@@ -1,0 +1,721 @@
+$ java -jar 13FAggregator.jar 
+Welcome to the 13F Aggregator!
+
+This aggregator requires an account from gurufocus.com
+
+Enter your username: this_is_my_free_account_username_which_is_my_email
+Enter your password: this_is_my_free_account_password
+1. Arnold Van Den Berg
+2. Bruce Berkowitz
+3. Carl Icahn
+4. Charles Brandes
+5. Chuck Akre
+6. Daniel Loeb
+7. David Dreman
+8. Dodge & Cox
+9. Donald Smith
+10. Donald Yacktman
+11. Edward Lampert
+12. Frank Sands
+13. George Soros
+14. Glenn Greenberg
+15. Ian Cumming
+16. James Barrow
+17. Jean-Marie Eveillard
+18. Joel Greenblatt
+19. John Burbank
+20. John Griffin
+21. John Hussman
+22. John Keeley
+23. John Paulson
+24. Julian Robertson
+25. Lee Ainslie
+26. Leon Cooperman
+27. Lou Simpson
+28. Mario Gabelli
+29. Martin Whitman
+30. Mason Hawkins
+31. Meridian Funds
+32. Michael Price
+33. Prem Watsa
+34. PRIMECAP Management
+35. Ray Dalio
+36. Richard Perry
+37. Robert Rodriguez
+38. Ron Baron
+39. Ronald Muhlenkamp
+40. Ruane Cunniff
+41. Scott Black
+42. Seth Klarman
+43. Steve Mandel
+44. Tom Gayner
+45. Tweedy Browne
+46. Vanguard Health Care Fund
+47. Wallace Weitz
+48. Warren Buffett
+49. Wilbur Ross
+50. Yacktman Focused Fund
+51. Yacktman Fund
+52. Andreas Halvorsen
+53. Arnold Schneider
+54. Bill Ackman
+55. Bill Gates
+56. Bill Nygren
+57. Brian Rogers
+58. Chris Davis
+59. David Einhorn
+60. David Swensen
+61. David Tepper
+62. David Winters
+63. HOTCHKIS & WILEY
+64. Irving Kahn
+65. John Rogers
+66. Ken Fisher
+67. Ken Heebner
+68. Mark Hillman
+69. Mohnish Pabrai
+70. NWQ Managers
+71. Private Capital
+72. Richard Pzena
+73. Richard Snow
+74. Robert Bruce
+75. Robert Karr
+76. Robert Olstein
+77. T Boone Pickens
+78. Ted Weschler
+79. Third Avenue Management
+80. Whitney Tilson
+Guru to aggregate[number or all]: 59
+
+------------------------------
+David Einhorn
+------------------------------
+
+Page 0
+Page 1
+Page 2
+Page 3
+Page 4
+Page 5
+Page 6
+Page 7
+Page 8
+Page 9
+Page 10
+Page 11
+Page 12
+Page 13
+Page 14
+Page 15
+Page 16
+Page 17
+Page 18
+Page 19
+Page 20
+Page 21
+Page 22
+Page 23
+Page 24
+Page 25
+Page 26
+Page 27
+Page 28
+
+---------------
+AAPL
+---------------
+
+Portfolio Impact: 16.2%
+Current Share Price: $433.26
+
+Tx History:
+2010-06-30	 Buy	 254.79	 235.86	 312,500
+2010-09-30	 Add	 259.70	 239.93	 525,000
+2011-06-30	 Add	 337.64	 315.32	 240,000
+2011-09-30	 Add	 381.98	 349.43	 236,200
+2011-12-31	 Add	 391.76	 363.57	 150,000
+2012-09-30	 Reduce	 635.18	 574.81	 -372,810
+2012-12-31	 Add	 577.16	 509.59	 216,116
+2013-03-31	 Add	 467.26	 420.05	 1,090,700
+Final shares: 	2,397,706
+
+AVG: 	$389.95
+MIN: 	$353.98
+
+---------------
+GM
+---------------
+
+Portfolio Impact: 9.0%
+Current Share Price: $33.42
+
+Tx History:
+2011-03-31	 Buy	 35.03	 30.74	 3,420,000
+2011-09-30	 Add	 25.39	 20.24	 11,313,000
+2011-12-31	 Add	 22.15	 19.05	 4,276,408
+2012-03-31	 Reduce	 23.63	 21.05	 -4,196,245
+2012-06-30	 Add	 22.51	 19.51	 2,613,700
+2012-09-30	 Add	 21.06	 18.79	 4,155,200
+Final shares: 	21,582,063
+
+AVG: 	$25.14
+MIN: 	$21.13
+
+---------------
+MRVL
+---------------
+
+Portfolio Impact: 8.4%
+Current Share Price: $11.43
+
+Tx History:
+2011-09-30	 Buy	 14.19	 11.94	 16,640,000
+2011-12-31	 Add	 14.16	 13.14	 733,557
+2012-03-31	 Add	 14.67	 14.19	 998,690
+2012-06-30	 Add	 13.52	 11.06	 7,230,232
+2012-09-30	 Add	 10.74	 9.18	 7,127,970
+2012-12-31	 Add	 8.27	 7.14	 19,071,994
+Final shares: 	51,802,443
+
+AVG: 	$11.45
+MIN: 	$9.73
+
+---------------
+CI
+---------------
+
+Portfolio Impact: 7.8%
+Current Share Price: $67.9
+
+Tx History:
+2012-06-30	 Buy	 45.71	 42.47	 6,435,000
+2012-09-30	 Add	 43.97	 39.66	 666,800
+2012-12-31	 Add	 51.62	 48.63	 1,084,200
+Final shares: 	8,186,000
+
+AVG: 	$46.35
+MIN: 	$43.06
+
+---------------
+AET
+---------------
+
+Portfolio Impact: 5.1%
+Current Share Price: $60.04
+
+Tx History:
+2012-06-30	 Buy	 43.68	 39.65	 3,169,925
+2012-09-30	 Add	 38.04	 35.30	 1,226,330
+2012-12-31	 Add	 43.61	 40.70	 2,111,960
+Final shares: 	6,508,215
+
+AVG: 	$42.59
+MIN: 	$39.17
+
+---------------
+CSC
+---------------
+
+Portfolio Impact: 4.4%
+Current Share Price: $44.6
+
+Tx History:
+2012-03-31	 Buy	 27.03	 23.37	 2,400,000
+2012-06-30	 Add	 26.56	 23.32	 1,222,023
+2012-09-30	 Add	 28.42	 22.50	 3,244,227
+2012-12-31	 Add	 35.45	 30.45	 850,000
+2013-03-31	 Reduce	 45.65	 40.05	 -1,799,989
+Final shares: 	5,916,261
+
+AVG: 	$28.47
+MIN: 	$23.78
+
+---------------
+DLPH
+---------------
+
+Portfolio Impact: 4.1%
+Current Share Price: $48.52
+
+Tx History:
+2011-12-31	 Buy	 21.06	 19.63	 8,194,661
+2013-03-31	 Reduce	 40.35	 37.62	 -2,202,841
+Final shares: 	5,991,820
+
+AVG: 	$21.06
+MIN: 	$19.63
+
+---------------
+NCR
+---------------
+
+Portfolio Impact: 3.9%
+Current Share Price: $31.48
+
+Tx History:
+2010-06-30	 Buy	 13.39	 11.72	 11,468,658
+2011-09-30	 Add	 17.94	 15.31	 -1,601,168
+2012-12-31	 Add	 23.18	 21.19	 392,300
+Final shares: 	10,259,790
+
+AVG: 	$13.05
+MIN: 	$11.52
+
+---------------
+VMED
+---------------
+
+Portfolio Impact: 3.7%
+Current Share Price: $50.36
+
+Tx History:
+2012-06-30	 Buy	 23.29	 21.46	 4,920,000
+Final shares: 	4,920,000
+
+AVG: 	$23.29
+MIN: 	$21.46
+
+---------------
+GDX
+---------------
+
+Portfolio Impact: 3.5%
+Current Share Price: $26.38
+
+Tx History:
+2008-12-31	 Buy	 24.50	 17.80	 3,200,000
+2010-12-31	 Add	 59.00	 54.28	 346,971
+2011-09-30	 Add	 60.21	 54.54	 3,718,000
+Final shares: 	7,264,971
+
+AVG: 	$44.42
+MIN: 	$38.34
+
+---------------
+OIS
+---------------
+
+Portfolio Impact: 3.4%
+Current Share Price: $101.89
+
+Tx History:
+2013-03-31	 Buy	 77.67	 71.54	 2,700,000
+Final shares: 	2,700,000
+
+AVG: 	$77.67
+MIN: 	$71.54
+
+---------------
+STX
+---------------
+
+Portfolio Impact: 3.0%
+Current Share Price: $41.47
+
+Tx History:
+2011-03-31	 Buy	 13.83	 12.29	 3,268,957
+2011-06-30	 Add	 16.37	 14.25	 8,236,416
+2011-09-30	 Add	 12.87	 10.08	 2,943,600
+2012-06-30	 Add	 26.80	 22.21	 8,750,053
+2012-09-30	 Reduce	 29.80	 24.48	 -6,610,886
+2012-12-31	 Reduce	 28.25	 25.10	 -8,217,244
+2013-03-31	 Reduce	 33.99	 30.42	 -2,978,796
+Final shares: 	5,392,100
+
+AVG: 	$19.50
+MIN: 	$16.45
+
+---------------
+AHL
+---------------
+
+Portfolio Impact: 2.9%
+Current Share Price: $37.85
+
+Tx History:
+2008-12-31	 Buy	 20.00	 14.24	 917,119
+2009-06-30	 Add	 22.95	 21.07	 3,222,881
+2011-09-30	 Add	 24.69	 22.17	 685,000
+2012-12-31	 Add	 31.25	 29.78	 89,782
+Final shares: 	4,914,782
+
+AVG: 	$22.79
+MIN: 	$20.11
+
+---------------
+MSFT
+---------------
+
+Portfolio Impact: 2.7%
+Current Share Price: $34.87
+
+Tx History:
+2008-03-31	 Add	 29.80	 27.10	 14,945,000
+2008-06-30	 Reduce	 28.80	 27.49	 -5,033,700
+2008-09-30	 Sold Out	 26.50	 25.15	 -9,911,300
+2009-09-30	 Add	 24.17	 22.39	 3,400,000
+2010-06-30	 Add	 28.01	 23.31	 4,260,442
+2011-03-31	 Add	 27.04	 24.78	 1,408,600
+2011-06-30	 Add	 25.04	 23.70	 5,750,000
+2011-09-30	 Add	 26.18	 24.05	 351,900
+2012-03-31	 Reduce	 28.73	 27.40	 -7,683,647
+2012-12-31	 Add	 27.96	 26.37	 3,342,249
+2013-03-31	 Reduce	 27.67	 26.46	 -4,750,000
+Final shares: 	6,079,544
+
+AVG: 	$27.84
+MIN: 	$25.35
+BUY NOT FOUND
+
+---------------
+CBS
+---------------
+
+Portfolio Impact: 2.6%
+Current Share Price: $51.53
+
+Tx History:
+2011-09-30	 Buy	 25.10	 20.97	 5,000,000
+2011-12-31	 Add	 24.69	 18.95	 924,539
+2012-03-31	 Reduce	 27.55	 27.27	 -1,395,858
+2012-12-31	 Add	 34.97	 32.40	 850,000
+2013-03-31	 Reduce	 42.77	 37.52	 -1,792,894
+Final shares: 	3,585,787
+
+AVG: 	$26.28
+MIN: 	$22.13
+
+---------------
+BAGL
+---------------
+
+Portfolio Impact: 2.4%
+Current Share Price: $14.03
+
+Tx History:
+2007-06-30	 Buy	 17.20	 16.72	 10,733,469
+Final shares: 	10,733,469
+
+AVG: 	$17.20
+MIN: 	$16.72
+
+---------------
+DST
+---------------
+
+Portfolio Impact: 2.4%
+Current Share Price: $71.36
+
+Tx History:
+2011-12-31	 Buy	 46.87	 41.23	 1,125,000
+2012-03-31	 Add	 48.46	 46.33	 442,734
+2012-06-30	 Add	 53.21	 49.60	 292,266
+2012-09-30	 Add	 53.30	 50.10	 148,749
+2012-12-31	 Add	 57.98	 54.44	 236,251
+Final shares: 	2,245,000
+
+AVG: 	$49.60
+MIN: 	$45.30
+
+---------------
+S
+---------------
+
+Portfolio Impact: 2.0%
+Current Share Price: $7.32
+
+Tx History:
+2010-12-31	 Buy	 4.22	 3.72	 55,900,000
+2011-09-30	 Add	 4.02	 3.01	 17,865,000
+2012-06-30	 Add	 2.67	 2.34	 -1,289,100
+2012-09-30	 Reduce	 4.44	 3.19	 -46,297,351
+Final shares: 	26,178,549
+
+AVG: 	$4.20
+MIN: 	$3.57
+
+---------------
+BWC
+---------------
+
+Portfolio Impact: 1.8%
+Current Share Price: $29.63
+
+Tx History:
+2012-09-30	 Buy	 25.32	 24.01	 860,446
+2012-12-31	 Add	 25.25	 23.34	 3,198,372
+Final shares: 	4,058,818
+
+AVG: 	$25.26
+MIN: 	$23.48
+
+---------------
+HES
+---------------
+
+Portfolio Impact: 1.4%
+Current Share Price: $69.68
+
+Tx History:
+2013-03-31	 Buy	 64.78	 52.96	 1,245,000
+Final shares: 	1,245,000
+
+AVG: 	$64.78
+MIN: 	$52.96
+
+---------------
+OAK
+---------------
+
+Portfolio Impact: 1.4%
+Current Share Price: $54.72
+
+Tx History:
+2012-06-30	 Buy	 38.15	 34.94	 1,851,812
+Final shares: 	1,851,812
+
+AVG: 	$38.15
+MIN: 	$34.94
+
+---------------
+LM
+---------------
+
+Portfolio Impact: 1.2%
+Current Share Price: $36.13
+
+Tx History:
+2011-09-30	 Buy	 28.58	 24.37	 2,600,000
+2011-12-31	 Add	 25.54	 22.95	 800,000
+2013-03-31	 Reduce	 28.44	 25.72	 -861,100
+Final shares: 	2,538,900
+
+AVG: 	$27.86
+MIN: 	$24.04
+
+---------------
+GMCR - PUT
+---------------
+
+Portfolio Impact: 1.1%
+No data
+
+---------------
+ABX
+---------------
+
+Portfolio Impact: 0.88%
+Current Share Price: $18.58
+
+Tx History:
+2011-09-30	 Buy	 49.73	 45.87	 1,350,000
+2012-03-31	 Reduce	 43.50	 42.75	 -337,500
+2012-06-30	 Add	 39.42	 35.18	 955,000
+Final shares: 	1,967,500
+
+AVG: 	$45.46
+MIN: 	$41.44
+
+---------------
+VOD
+---------------
+
+Portfolio Impact: 0.69%
+Current Share Price: $30.23
+
+Tx History:
+2012-12-31	 Buy	 26.62	 25.01	 1,600,000
+Final shares: 	1,600,000
+
+AVG: 	$26.62
+MIN: 	$25.01
+
+---------------
+ACM
+---------------
+
+Portfolio Impact: 0.59%
+Current Share Price: $31.4
+
+Tx History:
+2012-09-30	 Buy	 18.35	 15.29	 782,704
+2012-12-31	 Add	 22.10	 18.87	 390,443
+Final shares: 	1,173,147
+
+AVG: 	$19.60
+MIN: 	$16.48
+
+---------------
+CVH
+---------------
+
+Portfolio Impact: 0.59%
+Current Share Price: $0.28
+
+Tx History:
+2012-06-30	 Buy	 31.89	 28.95	 6,660,000
+2012-09-30	 Reduce	 35.82	 30.40	 -3,802,000
+2012-12-31	 Reduce	 43.60	 42.22	 -2,031,300
+Final shares: 	826,700
+
+AVG: 	$31.89
+MIN: 	$28.95
+
+---------------
+STBZ
+---------------
+
+Portfolio Impact: 0.52%
+Current Share Price: $15.6
+
+Tx History:
+2011-06-30	 Buy	 16.89	 16.37	 2,100,000
+Final shares: 	2,100,000
+
+AVG: 	$16.89
+MIN: 	$16.37
+
+---------------
+SPR
+---------------
+
+Portfolio Impact: 0.48%
+Current Share Price: $21.93
+
+Tx History:
+2013-03-31	 Buy	 17.18	 15.94	 1,652,962
+Final shares: 	1,652,962
+
+AVG: 	$17.18
+MIN: 	$15.94
+
+---------------
+WDC
+---------------
+
+Portfolio Impact: 0.46%
+Current Share Price: $60.46
+
+Tx History:
+2012-12-31	 Buy	 36.50	 33.41	 600,000
+Final shares: 	600,000
+
+AVG: 	$36.50
+MIN: 	$33.41
+
+---------------
+FSC
+---------------
+
+Portfolio Impact: 0.34%
+Current Share Price: $10.87
+
+Tx History:
+2008-06-30	 Buy	 11.10	 10.26	 2,140,736
+Final shares: 	2,140,736
+
+AVG: 	$11.10
+MIN: 	$10.26
+
+---------------
+IACI
+---------------
+
+Portfolio Impact: 0.3%
+Current Share Price: $51.25
+
+Tx History:
+2013-03-31	 Buy	 42.82	 39.43	 436,708
+Final shares: 	436,708
+
+AVG: 	$42.82
+MIN: 	$39.43
+
+---------------
+CBF
+---------------
+
+Portfolio Impact: 0.25%
+Current Share Price: $17.86
+
+Tx History:
+2013-03-31	 Buy	 17.25	 15.22	 940,133
+Final shares: 	940,133
+
+AVG: 	$17.25
+MIN: 	$15.22
+
+---------------
+TSRA
+---------------
+
+Portfolio Impact: 0.2%
+Current Share Price: $20.45
+
+Tx History:
+2011-12-31	 Buy	 15.05	 11.27	 695,580
+Final shares: 	695,580
+
+AVG: 	$15.05
+MIN: 	$11.27
+
+---------------
+RJET
+---------------
+
+Portfolio Impact: 0.17%
+Current Share Price: $10.96
+
+Tx History:
+2008-06-30	 Buy	 14.80	 9.10	 965,789
+2008-09-30	 Add	 9.40	 7.29	 775,711
+2013-03-31	 Reduce	 9.39	 5.68	 -757,467
+Final shares: 	984,033
+
+AVG: 	$12.39
+MIN: 	$8.29
+
+---------------
+BIOF
+---------------
+
+Portfolio Impact: 0.11%
+Current Share Price: $4.11
+
+Tx History:
+2007-06-30	 Buy	 208.00	 206.00	 7,542,104
+2011-03-31	 Add	 21.60	 16.00	 19,626,775
+Final shares: 	27,168,879
+
+AVG: 	$73.34
+MIN: 	$68.74
+
+---------------
+NBHC
+---------------
+
+Portfolio Impact: 0.093%
+Current Share Price: $18.39
+
+Tx History:
+2013-03-31	 Buy	 18.50	 17.96	 332,693
+Final shares: 	332,693
+
+AVG: 	$18.50
+MIN: 	$17.96
+
+---------------
+SYMM
+---------------
+
+Portfolio Impact: 0.038%
+Current Share Price: $5.29
+
+Tx History:
+2010-06-30	 Buy	 5.76	 5.01	 799,562
+2010-09-30	 Add	 5.17	 4.81	 910,284
+2013-03-31	 Reduce	 5.16	 4.46	 -1,160,796
+Final shares: 	549,050
+
+AVG: 	$5.45
+MIN: 	$4.90

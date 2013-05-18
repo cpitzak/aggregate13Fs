@@ -21,8 +21,8 @@ import org.apache.http.util.EntityUtils;
 
 public class Client {
 
-	public static final String hhr = "---------------"; // HALF HR
-	public static final String hr = hhr + hhr;
+	public static final String hhr = "\n---------------\n"; // HALF HR
+	public static final String hr = "\n------------------------------\n";
 	private DefaultHttpClient client;
 
 	/**
