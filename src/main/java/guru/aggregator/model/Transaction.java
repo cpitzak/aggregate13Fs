@@ -1,5 +1,7 @@
 package guru.aggregator.model;
 
+import com.mongodb.BasicDBObject;
+
 /**
  * Defines a transaction.
  */
@@ -7,9 +9,14 @@ public class Transaction {
 
 	private String date;
 	private String entryType;
-	private float averagePrice;
-	private float minimumPrice;
+	private Money averagePrice = new Money("0.00");
+	private Money minimumPrice = new Money("0.00");
 	private int numberOfShares;
+	public static final String MIN = "min";
+	public static final String AVG = "avg";
+	public static final String DATE = "date";
+	public static final String ENTRY_TYPE = "entryType";
+	public static final String NUMBER_OF_SHARES = "numberOfShares";
 
 	/**
 	 * Constructs a stock entry.
@@ -25,7 +32,8 @@ public class Transaction {
 	 * @param numberOfShares
 	 *            the number of shares to use
 	 */
-	public Transaction(String date, String entryType, float averagePrice, float minimumPrice, int numberOfShares) {
+	public Transaction(String date, String entryType, Money averagePrice,
+			Money minimumPrice, int numberOfShares) {
 		this.date = date;
 		this.entryType = entryType;
 		this.averagePrice = averagePrice;
@@ -66,7 +74,7 @@ public class Transaction {
 	/**
 	 * @return the avgPrice
 	 */
-	public float getAveragePrice() {
+	public Money getAveragePrice() {
 		return averagePrice;
 	}
 
@@ -74,14 +82,14 @@ public class Transaction {
 	 * @param averagePrice
 	 *            the avgPrice to set
 	 */
-	public void setAveragePrice(float averagePrice) {
+	public void setAveragePrice(Money averagePrice) {
 		this.averagePrice = averagePrice;
 	}
 
 	/**
 	 * @return the minPrice
 	 */
-	public float getMinimumPrice() {
+	public Money getMinimumPrice() {
 		return minimumPrice;
 	}
 
@@ -89,7 +97,7 @@ public class Transaction {
 	 * @param minimumPrice
 	 *            the minPrice to set
 	 */
-	public void setMinimumPrice(float minimumPrice) {
+	public void setMinimumPrice(Money minimumPrice) {
 		this.minimumPrice = minimumPrice;
 	}
 
@@ -106,6 +114,14 @@ public class Transaction {
 	 */
 	public void setNumberOfShares(int numberOfShares) {
 		this.numberOfShares = numberOfShares;
+	}
+
+	public BasicDBObject getDatabaseObject() {
+		BasicDBObject document = new BasicDBObject(DATE, date)
+				.append(ENTRY_TYPE, entryType).append(AVG, averagePrice.inCents())
+				.append(MIN, minimumPrice.inCents())
+				.append(NUMBER_OF_SHARES, numberOfShares);
+		return document;
 	}
 
 }

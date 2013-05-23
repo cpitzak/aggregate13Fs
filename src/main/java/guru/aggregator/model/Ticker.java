@@ -1,5 +1,7 @@
 package guru.aggregator.model;
 
+import com.mongodb.BasicDBObject;
+
 /**
  * Defines a ticker.
  */
@@ -7,10 +9,13 @@ public class Ticker {
 
 	private String ticker;
 	private float percent;
-
 	private boolean buyFound;
 	private TransactionHistory transactionHistory = new TransactionHistory();
-	private float currentPrice = -1.0f;
+	public static final String PERCENT = "percent";
+	public static final String BUY_FOUND = "buyFound";
+	public static final String TICKER = "ticker";
+	public static final String TRANSACTION_HISTORY = "transactionHistory";
+
 
 	/**
 	 * Constructs a ticker.
@@ -23,6 +28,11 @@ public class Ticker {
 	public Ticker(String ticker, float percent) {
 		this.ticker = ticker;
 		this.percent = percent;
+	}
+	
+	public Ticker(String ticker, float percent, TransactionHistory transactionHistory) {
+		this(ticker, percent);
+		this.transactionHistory = transactionHistory;
 	}
 
 	/**
@@ -80,16 +90,15 @@ public class Ticker {
 	/**
 	 * @return the currentPrice
 	 */
-	public float getCurrentPrice() {
-		return currentPrice;
+	public String getCurrentPrice() {
+		return "$" + StockQuote.getQuote(ticker);
 	}
 
-	/**
-	 * @param currentPrice
-	 *            the currentPrice to set
-	 */
-	public void setCurrentPrice(float currentPrice) {
-		this.currentPrice = currentPrice;
+	public BasicDBObject getDatabaseObject() {
+		BasicDBObject document = new BasicDBObject(TICKER, ticker)
+				.append(PERCENT, Float.toString(percent)).append(BUY_FOUND, buyFound)
+				.append(TRANSACTION_HISTORY, transactionHistory.getDatabaseObject());
+		return document;
 	}
 
 }

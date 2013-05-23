@@ -18,8 +18,8 @@ public class PrintResults {
 					System.out.println("No data");
 					continue;
 				}
-				ticker.getTransactionHistory().adjustTxShares();
-				System.out.println("Current Share Price: $"
+//				ticker.getTransactionHistory().adjustTxShares();
+				System.out.println("Current Share Price: "
 						+ ticker.getCurrentPrice());
 				ticker.getTransactionHistory().printOldestToLatest();
 				ticker.getTransactionHistory().calcPrintCostBases();
@@ -28,6 +28,8 @@ public class PrintResults {
 				}
 				System.out.println();
 			}
+		} else {
+			System.out.println("No data for guru");
 		}
 	}
 }

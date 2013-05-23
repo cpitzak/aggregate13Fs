@@ -4,6 +4,7 @@ import guru.aggregator.interfaces.HoldingsTable;
 import guru.aggregator.model.Client;
 import guru.aggregator.model.Filters;
 import guru.aggregator.model.Guru;
+import guru.aggregator.model.Money;
 import guru.aggregator.model.Ticker;
 
 import java.io.IOException;
@@ -178,24 +179,17 @@ public class GuruDataAggregator {
 					avgPrice = avgPrice.trim();
 					if (avgPrice.charAt(0) == '$')
 						avgPrice = avgPrice.substring(1);
-					float fAvgPrice = Float.parseFloat(avgPrice);
+					Money fAvgPrice = new Money(avgPrice);
 
 					String minPrice = price;
-					float fMinPrice = -1.0f;
+					Money fMinPrice = new Money("0.00");
 					if (minPrice.contains("-")) // Otherwise no minPrice entry
 					{
 						minPrice = minPrice.substring(0, minPrice.indexOf("-"));
 						minPrice = minPrice.trim();
 						if (minPrice.charAt(0) == '$')
 							minPrice = minPrice.substring(1);
-						fMinPrice = Float.parseFloat(minPrice);
-					}
-
-					if (ticker.getCurrentPrice() == -1.0f) {
-						String sCurPrice = td[6].getText().toString().trim();
-						if (sCurPrice.charAt(0) == '$')
-							sCurPrice = sCurPrice.substring(1);
-						ticker.setCurrentPrice(Float.parseFloat(sCurPrice));
+						fMinPrice = new Money(minPrice);
 					}
 
 					String sNumShares = td[9].getText().toString().trim();

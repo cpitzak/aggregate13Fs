@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Wed May 22 18:54:50 PDT 2013
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=13FAggregator_fat.jar
+manifest.mergeall=true
+manifest.mainclass=guru.aggregator.Main
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=
