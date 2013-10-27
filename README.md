@@ -1,8 +1,10 @@
-# 13F Aggregator
+# Aggregate 13Fs
 
 ## About
 This aggregates [13F Forms](http://en.wikipedia.org/wiki/Form_13F) to gain insights about what the guru money managers and investors
 are buying and selling each quarter.
+
+3:58 http://www.youtube.com/watch?v=YmmIbrKDYbw&feature=youtu.be
 
 ## Prerequisites
 You need to have the following installed and running:
